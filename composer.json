@@ -1,0 +1,18 @@
+{
+    "name": "sami0002/php-crud-tvshow",
+    "description": "Développement d'une application Web de consultation et modification de séries télés",
+    "type": "project",
+    "license": "Copyleft",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sami0002",
+            "email": "komlanvi---angelo.samina@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {}
+}
