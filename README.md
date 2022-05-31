@@ -25,3 +25,7 @@ CHOQUET Tristan choq0003
         composer test:cs 
 * Et en corrigeant avec 
         composer fix:cs
+
+## Configuration de la base de données
+* Nous avons ajouté un fichier .mypdo.ini à la racine du projet afin que désormais il n'y ai plus besoin
+  de renseigner les données de conexion à la BD au sein de chaque fichier.
