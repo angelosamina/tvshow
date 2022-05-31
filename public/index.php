@@ -17,19 +17,23 @@ $webPage->appendContent(
     HTML
 );
 
+
+$test = 0;
+
 foreach ($stmt as $res) {
+    $test += 1;
     $name = AppWebPage::escapeString($res->getName());
     $posterId = $res->getPosterId();
     $overview = AppWebPage::escapeString($res->getOverview());
     $webPage->appendContent(
         <<<HTML
-        <album>
-            <tvShow__cover><img src="poster.php?posterId=$posterId"></tvShow__cover>
+        <show>
+            <tvShow__cover id=$test><img src="poster.php?posterId=$posterId"></tvShow__cover>
             <main>
                 <tvShow__name>$name</tvShow__name>
                 <tvShow__overview>$overview</tvShow__overview>
             </main>
-        </album>
+        </show>
     HTML
     );
 }
