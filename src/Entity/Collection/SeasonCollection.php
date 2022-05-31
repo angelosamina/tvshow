@@ -15,6 +15,7 @@ class SeasonCollection
      * @param int $showId
      * @return Tvshow[]
      */
+
     public static function findByShowId(int $showId): array
     {
         $stmt = MyPDO::getInstance()->prepare(
@@ -30,5 +31,4 @@ class SeasonCollection
         $stmt -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Tvshow::class);
         return $stmt->fetchAll();
     }
-
 }
