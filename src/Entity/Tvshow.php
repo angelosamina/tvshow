@@ -70,7 +70,7 @@ class Tvshow
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT id, name
+            SELECT *
             FROM tvshow
             WHERE id = :id
             ORDER BY name
@@ -92,5 +92,4 @@ class Tvshow
     {
         return SeasonCollection::findByShowId($this->id);
     }
-
 }
