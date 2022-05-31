@@ -19,3 +19,9 @@ CHOQUET Tristan choq0003
   désormais possible de lancer le serveur Web local plus simplement avec cette commande :
         composer run-server
 
+## Simplification de l'utilisation de PHP CS Fixer
+* Avec l'ajout de 2 scripts "test:cs" et "fix:cs" dans le fichier composer.json, il est désormais
+  plus simple d'utiliser PHP CS Fixer en utilisant la vérification avec simplement :
+        composer test:cs 
+* Et en corrigeant avec 
+        composer fix:cs

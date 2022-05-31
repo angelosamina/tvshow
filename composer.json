@@ -23,6 +23,12 @@
     "scripts": {
         "run-server" : [
             "php -d display_errors -S localhost:8000 -t public/"
+        ],
+        "test:cs": [
+            "php vendor/bin/php-cs-fixer fix --dry-run"
+        ],
+        "fix:cs": [
+            "php vendor/bin/php-cs-fixer fix"
         ]
     }
 }
