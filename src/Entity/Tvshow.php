@@ -60,6 +60,4 @@ class Tvshow
     {
         return $this->posterId;
     }
-
-
 }

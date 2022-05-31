@@ -10,7 +10,7 @@ use PDO;
 
 class TvshowCollection
 {
-    public static function findAll() : array
+    public static function findAll(): array
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
