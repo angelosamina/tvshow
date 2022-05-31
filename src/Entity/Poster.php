@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Entity;
 
 use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
 use PDO;
 
 class Poster
@@ -33,16 +34,19 @@ class Poster
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
             SELECT id, jpeg
-            FROM cover
+            FROM poster
             WHERE id = :id
         SQL
         );
 
         $stmt->execute([':id' => $id]);
 
-        $stmt -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Cover::class);
+        $stmt -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Poster::class);
         $poster =  $stmt->fetch();
-
-        return $poster;
+        if ($poster == false) {
+            throw new EntityNotFoundException("L'id saisi n'est pas présent dans la base de données");
+        } else {
+            return $poster;
+        }
     }
 }
