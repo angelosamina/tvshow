@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Database\MyPdo;
 use Html\AppWebPage;
+use Entity\Collection;
 
 $webPage = new AppWebPage();
 $webPage->setTitle('Séries TV');
