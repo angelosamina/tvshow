@@ -10,6 +10,11 @@ $webPage->setTitle('Séries TV');
 
 $stmt = Collection\TvshowCollection::findAll();
 
+$webPage->appendContent(
+    <<<HTML
+    <list>
+    HTML
+);
 
 foreach ($stmt as $res) {
     $name = AppWebPage::escapeString($res->getName());
