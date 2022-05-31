@@ -10,18 +10,20 @@ $webPage->setTitle('Séries TV');
 
 $stmt = Collection\TvshowCollection::findAll();
 
-$webPage->appendContent(
-    <<<HTML
-    <list>
-HTML
-);
 
 foreach ($stmt as $res) {
-    $id = $res->getId();
-    $nom = WebPage::escapeString($res->getName());
+    $name = AppWebPage::escapeString($res->getName());
+    $posterId = $res->getPosterId();
+    $overview = AppWebPage::escapeString($res->getOverview());
     $webPage->appendContent(
         <<<HTML
-        <a href="/season.php?id=$id">$nom</a>\n
+        <album>
+            <tvShow__cover><img src="poster.php?posterId=$posterId"></tvShow__cover>
+            <main>
+                <tvShow__name>$name</tvShow__name>
+                <tvShow__overview>$overview</tvShow__overview>
+            </main>
+        </album>
     HTML
     );
 }
@@ -29,7 +31,8 @@ foreach ($stmt as $res) {
 $webPage->appendContent(
     <<<HTML
     </list>
-HTML
+    HTML
 );
+
 
 echo $webPage->toHTML();
