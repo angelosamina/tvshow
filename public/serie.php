@@ -29,16 +29,40 @@ $webPage->setTitle(
         Albums de $titre
     HTML
 );
+
+$idTvshow = $tvshow->getId();
+$originalTitre = WebPage::escapeString($tvshow->getOriginalName());
+$desc = WebPage::escapeString($tvshow->getOverview());
+$posterTv = $tvshow->getPosterId();
+
+
 $webPage->appendContent(
     <<<HTML
     <list>
+        <serie>
+            <saison__cover><img src="cover.php?coverId=$posterTv"></saison__cover>
+            <main>
+                <saison__titre>$titre</saison__titre>
+                <saison__Otitre>$originalTitre</saison__Otitre>
+                <saison__overview>$desc</saison__overview>
+            </main>
+        </serie>
     HTML
 );
 
-$saisons = $tvshow->getSaisons();
+$saisons = $tvshow->getSeason();
 
 foreach ($saisons as $res) {
-    $poster = $res->getPosterId();
-    $titre = WebPage::escapeString($res->getName());
-    $tvshowId = $res->getTvshowId();
+    $posterId = $res->getPosterId();
+    $titreS = WebPage::escapeString($res->getName());
+    $webPage->appendContent(
+        <<<HTML
+        <saison>
+            <saison__cover><img src="cover.php?coverId=$posterId"></saison__cover>
+            <main>
+                <saison__titre>$titreS</saison__titre>
+            </main>
+        </saison>
+    HTML
+    );
 }

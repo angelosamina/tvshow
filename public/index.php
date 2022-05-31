@@ -22,12 +22,13 @@ $test = 0;
 
 foreach ($stmt as $res) {
     $test += 1;
+    $id = $res->getId();
     $name = AppWebPage::escapeString($res->getName());
     $posterId = $res->getPosterId();
     $overview = AppWebPage::escapeString($res->getOverview());
     $webPage->appendContent(
         <<<HTML
-        <show>
+        <show href="serie.php?serieId=$id">
             <tvShow__cover id=$test><img src="poster.php?posterId=$posterId"></tvShow__cover>
             <main>
                 <tvShow__name>$name</tvShow__name>
