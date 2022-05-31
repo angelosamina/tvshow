@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Entity\Exception\EntityNotFoundException;
+use Exception\ParameterException;
 use Html\AppWebPage;
 
 $webPage = new AppWebPage();
@@ -26,7 +28,7 @@ try {
 
 settype($_GET['posterId'], "int");
 try {
-    $cover = Cover::findById($_GET['posterId']);
+    $cover = \Entity\Poster::findById($_GET['posterId']);
 } catch (EntityNotFoundException $except) {
     http_response_code(404);
     exit();
