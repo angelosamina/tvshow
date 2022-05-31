@@ -14,7 +14,7 @@ class TvshowCollection
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            SELECT name, overview, posterId
+            SELECT id, name, overview, posterId
             FROM tvshow
             ORDER BY name
         SQL

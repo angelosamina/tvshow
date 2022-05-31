@@ -23,12 +23,6 @@ list {
     flex-grow: 1;
 }
 
-a {
-    border: 2px solid red;
-    color: red;
-    margin:10px;
-}
-
 
 footer {
     display: flex;
@@ -39,14 +33,14 @@ footer {
     justify-content: center;
 }
 
-show:nth-child(odd) {
+a:nth-child(odd) {
     display: flex;
     margin:5px;
     border: 2px solid blue;
     flex-direction: row;
 }
 
-show:nth-child(even) {
+a:nth-child(even) {
     display: flex;
     margin:5px;
     border: 2px solid blue;

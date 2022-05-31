@@ -22,6 +22,7 @@ try {
     exit();
 }
 
+
 $titre = \Html\WebPage::escapeString($tvshow->getName());
 
 $webPage->setTitle(
@@ -34,7 +35,6 @@ $idTvshow = $tvshow->getId();
 $originalTitre = WebPage::escapeString($tvshow->getOriginalName());
 $desc = WebPage::escapeString($tvshow->getOverview());
 $posterTv = $tvshow->getPosterId();
-
 
 $webPage->appendContent(
     <<<HTML
@@ -65,4 +65,12 @@ foreach ($saisons as $res) {
         </saison>
     HTML
     );
+
+    $webPage->appendContent(
+        <<<HTML
+    </list>
+HTML
+    );
+
+    echo $webPage->toHTML();
 }
