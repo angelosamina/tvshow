@@ -43,5 +43,4 @@ $webPage->appendContent(
     </list>
     HTML
 );
-
 echo $webPage->toHTML();
