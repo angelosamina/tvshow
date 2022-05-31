@@ -53,5 +53,13 @@ class Tvshow
         return $this->overview;
     }
 
+    /**
+     * @return int
+     */
+    public function getPosterId(): int
+    {
+        return $this->posterId;
+    }
+
 
 }
