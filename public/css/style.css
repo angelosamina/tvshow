@@ -1,0 +1,75 @@
+header {
+    display: flex;
+    border : 2px solid black;
+    justify-content: center;
+    margin:5px;
+}
+
+
+content {
+    display: flex;
+    border: 2px solid black;
+    flex-grow: 1;
+    margin:5px;
+}
+
+list {
+    display: flex;
+    overflow:scroll;
+    max-height: 700px;
+    flex-direction: column;
+    border: 2px solid black;
+    margin:5px;
+    flex-grow: 1;
+}
+
+a {
+    border: 2px solid red;
+    color: red;
+    margin:10px;
+}
+
+
+footer {
+    display: flex;
+    border : 2px solid black;
+    margin:5px;
+    font-size: large;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+show:nth-child(odd) {
+    display: flex;
+    margin:5px;
+    border: 2px solid blue;
+    flex-direction: row;
+}
+
+show:nth-child(even) {
+    display: flex;
+    margin:5px;
+    border: 2px solid blue;
+    flex-direction: row-reverse;
+}
+
+tvShow__overview {
+    margin:5px;
+}
+
+tvShow__name {
+    color: red;
+    margin:5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+tvShow__cover{
+    display: flex;
+    margin: 10px;
+    border: 2px solid black;
+}
