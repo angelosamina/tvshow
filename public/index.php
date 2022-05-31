@@ -44,5 +44,4 @@ $webPage->appendContent(
     HTML
 );
 
-
 echo $webPage->toHTML();
