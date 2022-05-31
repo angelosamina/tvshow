@@ -42,4 +42,3 @@ foreach ($saisons as $res) {
     $titre = WebPage::escapeString($res->getName());
     $tvshowId = $res->getTvshowId();
 }
-
