@@ -44,7 +44,7 @@ $webPage->appendContent(
 $webPage->appendContent(
     <<<HTML
         <a>
-            <saison__cover><img src="cover.php?coverId=$posterTv"></saison__cover>
+            <saison__cover><img src="poster.php?posterId=$posterTv"></saison__cover>
             <main>
                 <saison__titre>$titre</saison__titre>
                 <saison__Otitre>$originalTitre</saison__Otitre>
