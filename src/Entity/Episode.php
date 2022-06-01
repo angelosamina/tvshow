@@ -51,6 +51,4 @@ class Episode
     {
         return $this->episodeNumber;
     }
-
-
 }
