@@ -124,4 +124,14 @@ a.button{
     top: 20px;
 }
 
+a.filters{
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border: none;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
 
