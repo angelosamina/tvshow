@@ -77,3 +77,11 @@ tvShow__cover{
     margin: 10px;
     border: 2px solid black;
 }
+
+saison__titre{
+    justify-content: end;
+}
+
+saison__Otitre{
+    justify-content: end;
+}
