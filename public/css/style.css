@@ -36,14 +36,14 @@ footer {
 a:nth-child(odd) {
     display: flex;
     margin:5px;
-    border: 2px solid blue;
+    border: 2px solid black;
     flex-direction: row;
 }
 
 a:nth-child(even) {
     display: flex;
     margin:5px;
-    border: 2px solid blue;
+    border: 2px solid black;
     flex-direction: row-reverse;
 }
 
@@ -84,4 +84,29 @@ saison__titre{
 
 saison__Otitre{
     justify-content: end;
+}
+
+season{
+    display: flex;
+    flex-direction: row;
+}
+
+saison__titre{
+    display: flex;
+}
+
+#show__link{
+    display: flex;
+    border:none;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+}
+
+.episode{
+    display: flex;
+    border: 1px solid black;
+    margin: 5px;
 }
