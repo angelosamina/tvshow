@@ -94,6 +94,9 @@ season{
 saison__titre{
     display: flex;
 }
+saison__Otitre{
+    display: flex;
+}
 
 #show__link{
     display: flex;
@@ -110,3 +113,4 @@ saison__titre{
     border: 1px solid black;
     margin: 5px;
 }
+
