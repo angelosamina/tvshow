@@ -16,7 +16,7 @@ class Tvshow
     private string $originalName;
     private string $homepage;
     private string $overview;
-    protected int $posterId;
+    protected ?int $posterId;
 
     /**
      * @return int
@@ -61,9 +61,9 @@ class Tvshow
     /**
      * @return int
      */
-    public function getPosterId(): int
+    public function getPosterId(): ?int
     {
-        return $this->posterId;
+        return $this->posterId | null;
     }
 
     public static function findById(int $id): Tvshow
