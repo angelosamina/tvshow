@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace Entity;
 
+use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
+use PDO;
+
 class Season
 {
     private int $id;
@@ -50,5 +54,27 @@ class Season
     public function getPosterId(): int
     {
         return $this->posterId;
+    }
+
+    public static function findById(int $id): Season
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            SELECT *
+            FROM season
+            WHERE id = :id
+            ORDER BY name
+        SQL
+        );
+
+        $stmt->execute([':id' => $id]);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Season::class);
+        $season = $stmt->fetch();
+        if ($season == false) {
+            throw new EntityNotFoundException("L'id saisi n'est pas présent dans la base de données");
+        } else {
+            return $season;
+        }
     }
 }
