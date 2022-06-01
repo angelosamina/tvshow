@@ -18,6 +18,11 @@ class Tvshow
     private string $overview;
     protected ?int $posterId;
 
+    public function __construct()
+    {
+    }
+
+
     /**
      * @return int|null
      */
@@ -188,5 +193,20 @@ class Tvshow
 
         return $this;
     }
+
+    public static function create(string $name, string $originalName, string $homepage, string $overview,int $posterId, ?int $id=null): Tvshow
+    {
+        $res = new Tvshow();
+        $res->setName($name);
+        $res->setId($id);
+        $res->setHomepage($homepage);
+        $res->setOriginalName($originalName);
+        $res->setOverview($overview);
+        $res->setPosterId($posterId);
+
+
+        return $res;
+    }
+
 
 }
