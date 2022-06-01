@@ -47,6 +47,16 @@ a:nth-child(even) {
     flex-direction: row-reverse;
 }
 
+a:link{
+    text-decoration: none;
+    color: black;
+}
+
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+
 tvShow__overview {
     margin:5px;
 }
