@@ -22,7 +22,10 @@ class AppWebPage extends WebPage
             <meta name='viewport' content='width=device-width, initial-scale=1'>
             {$this->head}
             <title> {$this->title}</title>
-        <header><h1>{$this->title}</h1></header>
+        <header>
+            <h1>{$this->title}</h1>
+            <a class="button" href="http://localhost:8000/index.php"><img src="https://icon-library.com/images/home-button-icon-png/home-button-icon-png-10.jpg"></a>
+        </header>
         <content>
             {$this->body}
         </content>

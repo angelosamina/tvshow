@@ -114,3 +114,14 @@ saison__Otitre{
     margin: 5px;
 }
 
+a.button{
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+
