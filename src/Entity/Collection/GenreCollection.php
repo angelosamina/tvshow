@@ -33,4 +33,19 @@ class GenreCollection
         $stmt -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Genre::class);
         return $stmt->fetchAll();
     }
+
+    public static function findAll(): array
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            SELECT *
+            FROM genre
+        SQL
+        );
+
+        $stmt->execute();
+
+        $stmt -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Genre::class);
+        return $stmt->fetchAll();
+    }
 }

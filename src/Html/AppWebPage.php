@@ -25,6 +25,7 @@ class AppWebPage extends WebPage
         <header>
             <h1>{$this->title}</h1>
             <a class="button" href="http://localhost:8000/index.php"><img src="https://icon-library.com/images/home-button-icon-png/home-button-icon-png-10.jpg"></a>
+            <a class="filters" href="http://localhost:8000/filters.php"><img src="https://icon-library.com/images/filters-icon/filters-icon-19.jpg"></a>
         </header>
         <content>
             {$this->body}
