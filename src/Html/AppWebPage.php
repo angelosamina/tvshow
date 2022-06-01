@@ -24,7 +24,7 @@ class AppWebPage extends WebPage
             <title> {$this->title}</title>
         <header>
             <h1>{$this->title}</h1>
-            <a class="button" href="http://localhost:8000/index.php">Home</a>
+            <a class="button" href="http://localhost:8000/index.php"><img src="https://icon-library.com/images/home-button-icon-png/home-button-icon-png-10.jpg"></a>
         </header>
         <content>
             {$this->body}
