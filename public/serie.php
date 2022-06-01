@@ -58,10 +58,11 @@ $saisons = $tvshow->getSeason();
 
 foreach ($saisons as $res) {
     $posterId = $res->getPosterId();
+    $id = WebPage::escapeString($res->getId());
     $titreS = WebPage::escapeString($res->getName());
     $webPage->appendContent(
         <<<HTML
-        <a class="saison">
+        <a class="saison" href="season.php?seasonId=$id">
             <saison__cover><img src="poster.php?posterId=$posterId"></saison__cover>
             <main>
                 <saison__titre>$titreS</saison__titre>
