@@ -39,14 +39,18 @@ $posterTv = $tvshow->getPosterId();
 $webPage->appendContent(
     <<<HTML
     <list>
-        <serie>
+    HTML
+);
+$webPage->appendContent(
+    <<<HTML
+        <a>
             <saison__cover><img src="cover.php?coverId=$posterTv"></saison__cover>
             <main>
                 <saison__titre>$titre</saison__titre>
                 <saison__Otitre>$originalTitre</saison__Otitre>
                 <saison__overview>$desc</saison__overview>
             </main>
-        </serie>
+        </a>
     HTML
 );
 
@@ -57,7 +61,7 @@ foreach ($saisons as $res) {
     $titreS = WebPage::escapeString($res->getName());
     $webPage->appendContent(
         <<<HTML
-        <a>
+        <a class="saison">
             <saison__cover><img src="poster.php?posterId=$posterId"></saison__cover>
             <main>
                 <saison__titre>$titreS</saison__titre>
@@ -65,11 +69,11 @@ foreach ($saisons as $res) {
         </a>
     HTML
     );
-
-    $webPage->appendContent(
-        <<<HTML
+}
+$webPage->appendContent(
+    <<<HTML
     </list>
 HTML
-    );
-}
+);
+
 echo $webPage->toHTML();
