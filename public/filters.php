@@ -16,7 +16,7 @@ $stmt = Collection\GenreCollection::findAll();
 
 $webPage->appendContent(
     <<<HTML
-        <form class="form" name="filters" method="GET" action="check.php" >
+        <form class="form" name="filters" method="GET" action="index.php" >
     HTML
 );
 foreach ($stmt as $res) {
