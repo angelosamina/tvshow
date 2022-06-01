@@ -16,7 +16,7 @@ class TvshowForm
     /**
      * @param Tvshow|null $tvshow
      */
-    public function __construct(?Tvshow $tvshow=null)
+    public function __construct(?Tvshow $tvshow = null)
     {
         $this->tvshow = $tvshow;
     }
@@ -29,22 +29,22 @@ class TvshowForm
         return $this->tvshow;
     }
 
-    public function getHtmlForm(string $action):string
+    public function getHtmlForm(string $action): string
     {
         if (is_null($this->tvshow) == true) {
-            $id="";
-            $name="";
-            $originalName="";
-            $homepage="";
-            $overview="";
-            $posterId="";
+            $id = "";
+            $name = "";
+            $originalName = "";
+            $homepage = "";
+            $overview = "";
+            $posterId = "";
         } else {
             $id = $this->tvshow->getId();
             $name = self::escapeString($this->tvshow->getName());
-            $originalName= self::escapeString($this->tvshow->getOriginalName());
-            $homepage= self::escapeString($this->tvshow->getHomepage());
-            $overview= self::escapeString($this->tvshow->getOverview());
-            $posterId= $this->tvshow->getPosterId();
+            $originalName = self::escapeString($this->tvshow->getOriginalName());
+            $homepage = self::escapeString($this->tvshow->getHomepage());
+            $overview = self::escapeString($this->tvshow->getOverview());
+            $posterId = $this->tvshow->getPosterId();
         }
 
         $form = <<<HTML
@@ -78,5 +78,4 @@ class TvshowForm
 
         return $form;
     }
-
 }
