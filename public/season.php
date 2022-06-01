@@ -34,7 +34,7 @@ try {
 
 $showTitle = \Html\WebPage::escapeString($tvshow->getName());
 $seasonTitle = \Html\WebPage::escapeString($season->getName());
-$showId = \Html\WebPage::escapeString($season->getTvShowId());
+$showId =$season->getTvShowId();
 
 
 $webPage->setTitle(

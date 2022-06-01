@@ -58,7 +58,7 @@ $saisons = $tvshow->getSeason();
 
 foreach ($saisons as $res) {
     $posterId = $res->getPosterId();
-    $id = WebPage::escapeString($res->getId());
+    $id = $res->getId();
     $titreS = WebPage::escapeString($res->getName());
     $webPage->appendContent(
         <<<HTML
