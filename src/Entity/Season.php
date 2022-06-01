@@ -54,7 +54,7 @@ class Season
      */
     public function getPosterId(): ?int
     {
-        return $this->posterId | null;
+        return $this->posterId;
     }
 
     public static function findById(int $id): Season
