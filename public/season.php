@@ -50,11 +50,11 @@ $webPage->appendContent(
 $webPage->appendContent(
     <<<HTML
         <season>
-            <saison__cover><img src="poster.php?posterId=$seasonPosterId"></saison__cover>
-            <main>
-                <a id="show__link" href="serie.php?serieId=$showId">$showTitle</a>
-                <saison__titre>$seasonTitle</saison__titre>
-            </main>
+                <saison__cover><img src="poster.php?posterId=$seasonPosterId"></saison__cover>
+                <div class="box">
+                    <a id="show__link" href="serie.php?serieId=$showId">$showTitle</a>
+                    <saison__titre>$seasonTitle</saison__titre>
+                </div>
         </season>
     HTML
 );
@@ -67,13 +67,13 @@ foreach ($episodes as $res) {
     $overview = WebPage::escapeString($res->getOverview());
     $webPage->appendContent(
         <<<HTML
-        <a class="episode">
+        <div class="episode">
             <main>
                 <p>$episodeNumber - $title <br>
                    $overview
                 </p>
             </main>
-        </a>
+        </div>
     HTML
     );
 }
