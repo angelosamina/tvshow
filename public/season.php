@@ -51,8 +51,10 @@ $webPage->appendContent(
     <<<HTML
         <season>
                 <saison__cover><img src="poster.php?posterId=$seasonPosterId"></saison__cover>
-                <a id="show__link" href="serie.php?serieId=$showId">$showTitle</a>
-                <saison__titre>$seasonTitle</saison__titre>
+                <div>
+                    <a id="show__link" href="serie.php?serieId=$showId">$showTitle</a>
+                    <saison__titre>$seasonTitle</saison__titre>
+                </div>
         </season>
     HTML
 );
