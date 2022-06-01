@@ -27,7 +27,7 @@ $titre = \Html\WebPage::escapeString($tvshow->getName());
 
 $webPage->setTitle(
     <<<HTML
-        Albums de $titre
+        Série TV : $titre
     HTML
 );
 
@@ -57,12 +57,12 @@ foreach ($saisons as $res) {
     $titreS = WebPage::escapeString($res->getName());
     $webPage->appendContent(
         <<<HTML
-        <saison>
-            <saison__cover><img src="cover.php?coverId=$posterId"></saison__cover>
+        <a>
+            <saison__cover><img src="poster.php?posterId=$posterId"></saison__cover>
             <main>
                 <saison__titre>$titreS</saison__titre>
             </main>
-        </saison>
+        </a>
     HTML
     );
 
