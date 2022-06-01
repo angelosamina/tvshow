@@ -11,7 +11,7 @@ use PDO;
 
 class Tvshow
 {
-    private int $id;
+    private ?int $id;
     private string $name;
     private string $originalName;
     private string $homepage;
@@ -19,11 +19,21 @@ class Tvshow
     protected ?int $posterId;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     * @return Tvshow
+     */
+    private function setId(?int $id): Tvshow
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -35,11 +45,31 @@ class Tvshow
     }
 
     /**
+     * @param string $name
+     * @return Tvshow
+     */
+    public function setName(string $name): Tvshow
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getOriginalName(): string
     {
         return $this->originalName;
+    }
+
+    /**
+     * @param string $originalName
+     * @return Tvshow
+     */
+    public function setOriginalName(string $originalName): Tvshow
+    {
+        $this->originalName = $originalName;
+        return $this;
     }
 
     /**
@@ -51,6 +81,16 @@ class Tvshow
     }
 
     /**
+     * @param string $homepage
+     * @return Tvshow
+     */
+    public function setHomepage(string $homepage): Tvshow
+    {
+        $this->homepage = $homepage;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getOverview(): string
@@ -59,12 +99,33 @@ class Tvshow
     }
 
     /**
-     * @return int
+     * @param string $overview
+     * @return Tvshow
+     */
+    public function setOverview(string $overview): Tvshow
+    {
+        $this->overview = $overview;
+        return $this;
+    }
+
+    /**
+     * @return int|null
      */
     public function getPosterId(): ?int
     {
         return $this->posterId;
     }
+
+    /**
+     * @param int|null $posterId
+     * @return Tvshow
+     */
+    public function setPosterId(?int $posterId): Tvshow
+    {
+        $this->posterId = $posterId;
+        return $this;
+    }
+
 
     public static function findById(int $id): Tvshow
     {
