@@ -4,6 +4,8 @@ namespace Html;
 
 class WebPage
 {
+    use StringEscaper;
+
     protected string $head;
     protected string $title;
     protected string $body;
@@ -128,13 +130,5 @@ class WebPage
     {
         $res = "Dernière modification : " . date("F d Y H:i:s.", getlastmod());
         return $res;
-    }
-
-    /**
-     * @return string
-     */
-    public static function escapeString(string $string)
-    {
-        return htmlspecialchars($string, ENT_XML1 | ENT_QUOTES);
     }
 }
