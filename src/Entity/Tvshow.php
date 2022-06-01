@@ -18,6 +18,11 @@ class Tvshow
     private string $overview;
     protected ?int $posterId;
 
+    public function __construct()
+    {
+    }
+
+
     /**
      * @return int|null
      */
@@ -166,6 +171,84 @@ class Tvshow
         $stmt->execute([':id' => $this->getId()]);
 
         $this->setId(null);
+
+        return $this;
+    }
+
+    protected function update(): Tvshow
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            UPDATE tvshow
+            SET name = :name, originalName = :originalName, homepage = :homepage, overview = :overview, posterId = :posterId
+            WHERE id = :id;            
+        SQL
+        );
+
+        $stmt->execute([':name' => $this->getName(),
+            ':originalName' => $this->getOriginalName(),
+            ':homepage' => $this->getHomepage(),
+            ':overview' => $this->getOverview(),
+            ':posterId' => $this->getPosterId(),
+            ':id' => $this->getId()]);
+
+        return $this;
+    }
+
+    public static function create(string $name, string $originalName, string $homepage, string $overview, int $posterId, ?int $id=null): Tvshow
+    {
+        $res = new Tvshow();
+        $res->setName($name);
+        $res->setId($id);
+        $res->setHomepage($homepage);
+        $res->setOriginalName($originalName);
+        $res->setOverview($overview);
+        $res->setPosterId($posterId);
+
+
+        return $res;
+    }
+
+    protected function insert(): Tvshow
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            INSERT INTO Tvshow
+            VALUES (:id, :name, :originalName, :homepage, :overview, :posterId);
+        SQL
+        );
+
+        $stmt->execute([':id' => $this->getId(),
+            ':name' => $this->getName(),
+            ':originalName' => $this->getOriginalName(),
+            ':homepage' => $this->getHomepage(),
+            ':overview' => $this->getOverview(),
+            ':posterId' => $this->getPosterId()]);
+
+        $res = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+            SELECT id
+            FROM Tvshow
+            WHERE name = :name;
+        SQL
+        );
+
+        $res->execute([':name' => $this->getName()]);
+        $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Tvshow::class);
+        $tvshow = $res->fetch();
+
+        $this->setId($tvshow->getId());
+
+        return $this;
+    }
+
+    public function save(): Tvshow
+    {
+        if (is_null($this->getId())==true) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
 
         return $this;
     }
