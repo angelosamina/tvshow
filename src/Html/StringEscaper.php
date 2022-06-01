@@ -15,4 +15,12 @@ trait StringEscaper
         $chaine = htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, "UTF-8");
         return $chaine;
     }
+
+    public static function striptagsAndTrim(?string $string=null): ?string
+    {
+        $chaine = strip_tags($string);
+        $chaine = trim($chaine);
+
+        return $chaine;
+    }
 }
