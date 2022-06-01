@@ -5,14 +5,15 @@ namespace Entity\Collection;
 
 use Database\MyPdo;
 use Entity\Episode;
+use Entity\Genre;
 use Entity\Tvshow_Genre;
 use PDO;
 
-class TvShowGenreCollection
+class GenreCollection
 {
     /**
-     * Cette méthode retourne une liste des épisodes correspondant à l'id de la saison passé en paramètre
-     * @param int $seasonId
+     * Cette méthode retourne les genres d'une série
+     * @param int $showId
      * @return array
      */
 
@@ -21,14 +22,14 @@ class TvShowGenreCollection
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
             SELECT *
-            FROM tvshow_genre
+            FROM genre
             WHERE id = :id
         SQL
         );
 
         $stmt->execute([':id' => $showId]);
 
-        $stmt -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Tvshow_Genre::class);
+        $stmt -> setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Genre::class);
         return $stmt->fetchAll();
     }
 }
