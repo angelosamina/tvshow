@@ -25,7 +25,7 @@ foreach ($stmt as $res) {
     $webPage->appendContent(
         <<<HTML
             <label>
-                <input name="id" type="radio" value="$id">
+                <input name="genreId" type="radio" value="$id">
                 $name
             </label>
     HTML
