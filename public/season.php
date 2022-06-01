@@ -67,13 +67,13 @@ foreach ($episodes as $res) {
     $overview = WebPage::escapeString($res->getOverview());
     $webPage->appendContent(
         <<<HTML
-        <a class="episode">
+        <div class="episode">
             <main>
                 <p>$episodeNumber - $title <br>
                    $overview
                 </p>
             </main>
-        </a>
+        </div>
     HTML
     );
 }
