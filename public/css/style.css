@@ -134,4 +134,14 @@ a.filters{
     top: 20px;
 }
 
+.form{
+    display: flex;
+    flex-direction: column;
+}
+.form_button{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
 
