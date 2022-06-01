@@ -34,6 +34,7 @@ try {
 
 $showTitle = \Html\WebPage::escapeString($tvshow->getName());
 $seasonTitle = \Html\WebPage::escapeString($season->getName());
+$showId = \Html\WebPage::escapeString($season->getTvShowId());
 
 
 $webPage->setTitle(
@@ -56,7 +57,7 @@ $webPage->appendContent(
         <season>
             <saison__cover><img src="poster.php?posterId=$seasonPosterId"></saison__cover>
             <main>
-                <a id="show__link">$showTitle</a>
+                <a id="show__link" href="serie.php?tvShowId=$showId">$showTitle</a>
                 <saison__titre>$seasonTitle</saison__titre>
             </main>
         </season>
