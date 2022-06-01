@@ -71,6 +71,5 @@ foreach ($saisons as $res) {
     </list>
 HTML
     );
-
-    echo $webPage->toHTML();
 }
+echo $webPage->toHTML();
