@@ -153,4 +153,20 @@ class Tvshow
     {
         return SeasonCollection::findByShowId($this->id);
     }
+
+    public function delete(): Tvshow
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            DELETE FROM tvshow
+            WHERE id = :id;
+        SQL
+        );
+
+        $stmt->execute([':id' => $this->getId()]);
+
+        $this->setId(null);
+
+        return $this;
+    }
 }
