@@ -23,18 +23,13 @@ try {
     exit();
 }
 
-settype($_GET['serieId'], "int");
-try {
-    $tvshow = Tvshow::findById($_GET['serieId']);
-} catch (EntityNotFoundException $except) {
-    http_response_code(404);
-    exit();
-}
+$season = Season::findById($_GET['seasonId']);
 
+$tvshow = Tvshow::findById($season->getTvShowId());
 
 $showTitle = \Html\WebPage::escapeString($tvshow->getName());
 $seasonTitle = \Html\WebPage::escapeString($season->getName());
-$showId =$season->getTvShowId();
+$showId =$tvshow->getId();
 
 
 $webPage->setTitle(
@@ -57,7 +52,7 @@ $webPage->appendContent(
         <season>
             <saison__cover><img src="poster.php?posterId=$seasonPosterId"></saison__cover>
             <main>
-                <a id="show__link" href="serie.php?tvShowId=$showId">$showTitle</a>
+                <a id="show__link" href="serie.php?serieId=$showId">$showTitle</a>
                 <saison__titre>$seasonTitle</saison__titre>
             </main>
         </season>
@@ -68,7 +63,7 @@ $episodes = $season->getEpisodes();
 
 foreach ($episodes as $res) {
     $title = WebPage::escapeString($res->getName());
-    $episodeNumber = WebPage::escapeString($res->getEpisodeNumber());
+    $episodeNumber = $res->getEpisodeNumber();
     $overview = WebPage::escapeString($res->getOverview());
     $webPage->appendContent(
         <<<HTML
