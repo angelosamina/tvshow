@@ -242,4 +242,18 @@ class Tvshow
         return $this;
     }
 
+    public function save(): Tvshow
+    {
+        if (is_null($this->getId())==true) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+
+        return $this;
+    }
+
+
+
+
 }
