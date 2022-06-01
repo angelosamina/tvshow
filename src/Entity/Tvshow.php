@@ -169,4 +169,24 @@ class Tvshow
 
         return $this;
     }
+
+    public function save(): Tvshow
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            UPDATE tvshow
+            SET name = :name, originalName = :originalName, homepage = :homepage, overview = :overview
+            WHERE id = :id;            
+        SQL
+        );
+
+        $stmt->execute([':name' => $this->getName(),
+            ':originalName' => $this->getOriginalName(),
+            ':homepage' => $this->getHomepage(),
+            ':overview' => $this->getOverview(),
+            ':id' => $this->getId()]);
+
+        return $this;
+    }
+
 }
