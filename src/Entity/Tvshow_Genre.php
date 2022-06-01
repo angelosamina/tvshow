@@ -32,6 +32,4 @@ class Tvshow_Genre
     {
         return $this->tvShowId;
     }
-
-
 }
