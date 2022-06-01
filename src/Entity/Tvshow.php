@@ -175,12 +175,12 @@ class Tvshow
         return $this;
     }
 
-    public function save(): Tvshow
+    protected function update(): Tvshow
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
             UPDATE tvshow
-            SET name = :name, originalName = :originalName, homepage = :homepage, overview = :overview
+            SET name = :name, originalName = :originalName, homepage = :homepage, overview = :overview, posterId = :posterId
             WHERE id = :id;            
         SQL
         );
@@ -189,6 +189,7 @@ class Tvshow
             ':originalName' => $this->getOriginalName(),
             ':homepage' => $this->getHomepage(),
             ':overview' => $this->getOverview(),
+            ':posterId' => $this->getPosterId(),
             ':id' => $this->getId()]);
 
         return $this;
@@ -208,5 +209,37 @@ class Tvshow
         return $res;
     }
 
+    protected function insert(): Tvshow
+    {
+        $stmt = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+            INSERT INTO Tvshow
+            VALUES (:id, :name, :originalName, :homepage, :overview, :posterId);
+        SQL
+        );
+
+        $stmt->execute([':id' => $this->getId(),
+            ':name' => $this->getName(),
+            ':originalName' => $this->getOriginalName(),
+            ':homepage' => $this->getHomepage(),
+            ':overview' => $this->getOverview(),
+            ':posterId' => $this->getPosterId()]);
+
+        $res = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+            SELECT id
+            FROM Tvshow
+            WHERE name = :name;
+        SQL
+        );
+
+        $res->execute([':name' => $this->getName()]);
+        $res->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Tvshow::class);
+        $tvshow = $res->fetch();
+
+        $this->setId($tvshow->getId());
+
+        return $this;
+    }
 
 }
