@@ -2,6 +2,9 @@ html,body{
     font-family: Lato ;
     background-color: black;
     overflow-y : hidden;
+    overflow-x : hidden;
+    box-sizing: border-box;
+    margin: 0px;
 }
 
 header {
@@ -40,15 +43,18 @@ list {
 }
 
 
-footer {
+.footer {
     display: flex;
     border : 2px solid black;
-    font-size: large;
-    box-sizing: border-box;
     color: black;
     border-radius: 10px;
     justify-content: center;
     background-color: darkorange;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding-top:15px;
+    height:25px;
 }
 
 a{
