@@ -252,5 +252,4 @@ class Tvshow
 
         return $this;
     }
-
 }
