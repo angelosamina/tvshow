@@ -49,7 +49,7 @@ foreach ($tvshow as $res) {
     $overview = AppWebPage::escapeString($res->getOverview());
     $webPage->appendContent(
         <<<HTML
-        <a href="serie.php?serieId=$id">
+        <a class="result" href="serie.php?serieId=$id">
             <tvShow__cover id=$test><img src="poster.php?posterId=$posterId"></tvShow__cover>
             <main>
                 <tvShow__name>$name</tvShow__name>
