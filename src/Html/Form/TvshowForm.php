@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Html\Form;
 
 use Entity\Tvshow;
+use Exception\ParameterException;
 use Html\StringEscaper;
 
 class TvshowForm
@@ -77,5 +78,52 @@ class TvshowForm
     HTML;
 
         return $form;
+    }
+
+    public function setEntityFromQueryString(): void
+    {
+        if ((isset($_POST['id'])==false) || (ctype_digit($_POST['id'])==false)) {
+            $tvshowId = null;
+        } else {
+            $tvshowId = $_POST['id'];
+            settype($tvshowId, "int");
+        }
+
+        if ((isset($_POST['name'])) && $_POST['name'] != "") {
+            $name = self::striptagsAndTrim($_POST['name']);
+        } else {
+            throw new ParameterException("Name non défini");
+        }
+
+        if ((isset($_POST['originalName'])) && $_POST['originalName'] != "") {
+            $originalName = self::striptagsAndTrim($_POST['originalName']);
+        } else {
+            throw new ParameterException("originalName non défini");
+        }
+
+        if ((isset($_POST['homepage'])) && $_POST['homepage'] != "") {
+            $homepage = self::striptagsAndTrim($_POST['homepage']);
+        } else {
+            throw new ParameterException("homepage non défini");
+        }
+
+        if ((isset($_POST['overview'])) && $_POST['overview'] != "") {
+            $overview = self::striptagsAndTrim($_POST['overview']);
+        } else {
+            throw new ParameterException("overview non défini");
+        }
+
+        if ((isset($_POST['posterId'])==false) || (ctype_digit($_POST['posterId'])==false)) {
+            $posterId = null;
+        } else {
+            $posterId = $_POST['id'];
+            settype($posterId, "int");
+        }
+
+
+
+        $artist = Tvshow::create($name, $originalName, $homepage, $overview, $posterId, $tvshowId);
+
+        $this->artist = $artist;
     }
 }
