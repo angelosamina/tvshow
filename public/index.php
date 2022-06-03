@@ -11,9 +11,14 @@ $webPage->setTitle('Séries TV');
 
 $stmt = Collection\TvshowCollection::findAll();
 
+
+
 $webPage->appendContent(
     <<<HTML
     <list>
+    <div class="menu">
+        <a class="add" href="http://localhost:8000/admin/tvshow-form.php">Ajouter</a>
+    </div>
     HTML
 );
 
