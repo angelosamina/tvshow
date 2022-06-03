@@ -38,7 +38,14 @@ $posterTv = $tvshow->getPosterId();
 
 $webPage->appendContent(
     <<<HTML
+    
     <list>
+    <div class="menu">
+        <a class="update" href="http://localhost:8000/admin/tvshow-form.php?tvshowId=$idTvshow">Modifier</a>
+    </div>
+    <div class="menu">
+        <a class="delete" href="http://localhost:8000/admin/tvshow-delete.php?tvshowId=$idTvshow">Supprimer</a>
+    </div>
     HTML
 );
 $webPage->appendContent(
