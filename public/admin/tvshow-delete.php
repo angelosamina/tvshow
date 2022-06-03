@@ -23,4 +23,4 @@ try {
 }
 
 $artist->delete();
-header("Location: index.php");
+header("Location: /index.php");
