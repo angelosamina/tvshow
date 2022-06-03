@@ -212,3 +212,11 @@ a.add{
 input{
     height: 20px;
 }
+
+.result{
+    display: flex;
+    margin:5px;
+    border-radius: 10px;
+    flex-direction: row;
+    border: 2px solid orange;
+}
