@@ -195,7 +195,7 @@ class Tvshow
         return $this;
     }
 
-    public static function create(string $name, string $originalName, string $homepage, string $overview, int $posterId, ?int $id=null): Tvshow
+    public static function create(string $name, string $originalName, string $homepage, string $overview, ?int $posterId, ?int $id=null): Tvshow
     {
         $res = new Tvshow();
         $res->setName($name);
@@ -252,4 +252,5 @@ class Tvshow
 
         return $this;
     }
+
 }
