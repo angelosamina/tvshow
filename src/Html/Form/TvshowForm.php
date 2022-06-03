@@ -122,8 +122,8 @@ class TvshowForm
 
 
 
-        $artist = Tvshow::create($name, $originalName, $homepage, $overview, $posterId, $tvshowId);
+        $tvshow = Tvshow::create($name, $originalName, $homepage, $overview, $posterId, $tvshowId);
 
-        $this->artist = $artist;
+        $this->tvshow = $tvshow;
     }
 }

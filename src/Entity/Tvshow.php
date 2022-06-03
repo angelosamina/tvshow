@@ -213,7 +213,7 @@ class Tvshow
     {
         $stmt = MyPDO::getInstance()->prepare(
             <<<'SQL'
-            INSERT INTO Tvshow
+            INSERT INTO tvshow
             VALUES (:id, :name, :originalName, :homepage, :overview, :posterId);
         SQL
         );
@@ -228,7 +228,7 @@ class Tvshow
         $res = MyPdo::getInstance()->prepare(
             <<<'SQL'
             SELECT id
-            FROM Tvshow
+            FROM tvshow
             WHERE name = :name;
         SQL
         );
@@ -253,3 +253,4 @@ class Tvshow
         return $this;
     }
 }
+
