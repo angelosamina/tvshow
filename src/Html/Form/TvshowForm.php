@@ -49,7 +49,7 @@ class TvshowForm
         }
 
         $form = <<<HTML
-        <form name="TvshowForm" method="post" action="$action">
+        <form class="form" name="TvshowForm" method="post" action="$action">
             <label id="id">
                 <input name="id" type="hidden" value=$id>
             </label>

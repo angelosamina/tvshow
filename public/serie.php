@@ -47,10 +47,12 @@ $webPage->appendContent(
             <saison__cover><img src="poster.php?posterId=$posterTv"></saison__cover>
             <main>
                 <saison__titre>$titre</saison__titre>
-                <saison__Otitre>$originalTitre</saison__Otitre>
-                <saison__overview>$desc</saison__overview>
+                <saison__Otitre>$originalTitre</saison__Otitre><br>
+                <saison__overview> Description : <br> $desc</saison__overview>
             </main>
         </a>
+
+        <h2>Saisons : </h2>
     HTML
 );
 
