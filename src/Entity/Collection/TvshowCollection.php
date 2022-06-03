@@ -38,6 +38,7 @@ class TvshowCollection
                                 FROM tvshow_genre
                                 WHERE genreId = :genre
             )
+            ORDER BY name;
         SQL
         );
 
