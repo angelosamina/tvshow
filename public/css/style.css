@@ -1,8 +1,24 @@
+html,body{
+    font-family: Lato ;
+    background-color: black;
+    overflow-y : hidden;
+}
+
 header {
     display: flex;
     border : 2px solid black;
     justify-content: center;
+    border-radius: 15px;
+    background-color: darkorange;
     margin:5px;
+}
+
+h1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 90px;
+    margin-right: 90px;
+
 }
 
 
@@ -11,6 +27,7 @@ content {
     border: 2px solid black;
     flex-grow: 1;
     margin:5px;
+    color: white;
 }
 
 list {
@@ -18,7 +35,6 @@ list {
     overflow:scroll;
     max-height: 700px;
     flex-direction: column;
-    border: 2px solid black;
     margin:5px;
     flex-grow: 1;
 }
@@ -27,23 +43,34 @@ list {
 footer {
     display: flex;
     border : 2px solid black;
-    margin:5px;
     font-size: large;
     box-sizing: border-box;
+    color: black;
+    border-radius: 10px;
     justify-content: center;
+    background-color: darkorange;
 }
 
-a:nth-child(odd) {
+a{
     display: flex;
     margin:5px;
-    border: 2px solid black;
+    border-radius: 10px;
     flex-direction: row;
 }
 
-a:nth-child(even) {
+.saison{
     display: flex;
-    margin:5px;
-    border: 2px solid black;
+    border : 2px solid white;
+}
+
+a.serie:nth-child(odd) {
+    display: flex;
+    border: 3px solid orange;
+}
+
+a.serie:nth-child(even) {
+    display: flex;
+    border: 3px solid white;
     flex-direction: row-reverse;
 }
 
@@ -59,17 +86,24 @@ a:visited{
 
 tvShow__overview {
     margin:5px;
+    color: white;
+
 }
 
 tvShow__name {
     color: red;
     margin:5px;
+    color: white;
+    font-size: large;
+    font-weight: bold;
 }
 
 main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
+
 }
 
 tvShow__cover{
@@ -79,11 +113,17 @@ tvShow__cover{
 }
 
 saison__titre{
+    display: flex;
     justify-content: end;
+    font-size: large;
+    font-weight: bold;
 }
 
 saison__Otitre{
+    display: flex;
     justify-content: end;
+    font-size: large;
+    font-weight: bold;
 }
 
 season{
@@ -93,14 +133,19 @@ season{
 
 saison__titre{
     display: flex;
+    margin: 10px;
 }
+
 saison__Otitre{
     display: flex;
+    margin: 10px;
 }
 
 #show__link{
     display: flex;
     border:none;
+    color: white;
+    margin: 30px;
 }
 
 .box{
@@ -138,10 +183,22 @@ a.filters{
     display: flex;
     flex-direction: column;
 }
+
 .form_button{
     display: flex;
     margin: 10px;
     justify-content: center;
 }
 
+.menu{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: white;
+}
 
+a.add{
+    display: flex;
+    color: white;
+    border: 2px solid orange;
+}
